@@ -1,0 +1,20 @@
+#!/bin/bash
+
+TOMCAT_DIR=/opt/webserver
+
+copy_conf_files() {
+    echo "---> Copying conf files"
+    if [ -d /tmp/src/conf ]; then
+        cp -Rf /tmp/src/conf/. ${TOMCAT_DIR}/conf
+    fi
+}
+
+copy_webapp_files() {
+    echo "---> Copying webapp files"
+    if [ -d /tmp/src/webapps ]; then
+        cp -Rf /tmp/src/webapps/. ${TOMCAT_DIR}/webapps
+    fi
+}
+
+copy_conf_files
+copy_webapp_files
